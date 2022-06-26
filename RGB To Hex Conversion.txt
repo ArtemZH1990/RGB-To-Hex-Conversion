@@ -1,0 +1,85 @@
+5 kyu
+RGB To Hex Conversion
+
+
+
+The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value.
+
+Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
+
+The following are examples of expected output values:
+
+
+
+rgb(255, 255, 255) # returns FFFFFF
+rgb(255, 255, 300) # returns FFFFFF
+rgb(0,0,0) # returns 000000
+rgb(148, 0, 211) # returns 9400D3
+
+
+
+
+def rgb(r, g, b):
+    #your code here :)
+#    A, B, C, D, E, F = 10, 11, 12, 13, 14, 15      # Обозначения в шестнадцатеричной системе, заметка
+    
+    
+    a = []
+    a.append(r)
+    a.append(g)                           # Есть список с, числовыми данными для перевода из двоичной в шестнадцатеричную
+    a.append(b)
+    
+    b = 16
+    
+    c_1 = []
+    
+    for i in a:
+        if 0 <= i <= 255:
+            c_1.append(i //16)
+            c_1.append(i%16)
+        if i < 0:
+            i = 0
+            c_1.append(i //16)
+            c_1.append(i%16)
+            
+        if i > 255:
+            i = 255
+            c_1.append(i //16)
+            c_1.append(i%16)
+            
+        
+
+    
+    d_1 = []
+    
+    
+    for l in c_1:
+        if l == 10:
+            d_1.append('A')
+        if l == 11:
+            d_1.append('B')
+        if l == 12:
+            d_1.append('C')
+        if l == 13:
+            d_1.append('D')
+        if l == 14:
+            d_1.append('E')
+        if l == 15:
+            d_1.append('F')
+        if l < 10:
+            l = str(l)
+            d_1.append(l)
+            
+        
+        
+    f_1 = ''        
+    for j in d_1:
+        f_1 += j
+        
+        
+    return f_1
+        
+
+    
+
+
